@@ -30,3 +30,8 @@ func updateNumber():
 
 func getNumber():
 	return number
+
+#returns the modifier for the number stat
+# for example if the total strength score was 16 it would be a +3
+func getStatModifier():
+	return floor(number/2 - 5)
