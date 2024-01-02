@@ -24,8 +24,7 @@ func updateSheet():
 		match child.name:
 			#character name
 			"CharacterNameLabel":
-				child.set_text(characterName)
-			
+				child.set_text(characterName)			
 			#strength stat
 			"Str":
 				str.updateNumber()

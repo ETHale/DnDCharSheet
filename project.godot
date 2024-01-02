@@ -14,3 +14,7 @@ config/name="D&D Char Sheet Manager"
 run/main_scene="res://Scene/CharacterSheet.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+Globals="*res://Scripts/globals.gd"

@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://ca5ihe1n488ds"]
 
-[ext_resource type="Script" path="res://NumberStat.gd" id="1_rtvry"]
+[ext_resource type="Script" path="res://Scripts/NumberStat.gd" id="1_0m047"]
 
 [node name="NumberStat" type="Control"]
 layout_mode = 3
@@ -9,4 +9,4 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_rtvry")
+script = ExtResource("1_0m047")

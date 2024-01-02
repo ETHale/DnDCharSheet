@@ -1,0 +1,25 @@
+[gd_scene load_steps=2 format=3 uid="uid://codmp0sgsnlxg"]
+
+[ext_resource type="Script" path="res://Scripts/Skill.gd" id="1_dbye4"]
+
+[node name="Skill" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 6.0
+offset_top = 69.0
+offset_right = 46.0
+offset_bottom = 109.0
+script = ExtResource("1_dbye4")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Name" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+text = "Athletics"
+
+[node name="Modifier" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+text = "3"
