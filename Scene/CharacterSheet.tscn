@@ -1,7 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://dcvu5ymb1df73"]
+[gd_scene load_steps=2 format=3 uid="uid://dcvu5ymb1df73"]
 
 [ext_resource type="Script" path="res://Scripts/CharacterSheet.gd" id="1_x1xng"]
-[ext_resource type="PackedScene" uid="uid://codmp0sgsnlxg" path="res://Scene/skill.tscn" id="2_ny50b"]
 
 [node name="CharacterSheet" type="Control"]
 layout_mode = 3
@@ -31,5 +30,3 @@ layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
 text = "10"
-
-[node name="Athletics" parent="." instance=ExtResource("2_ny50b")]
