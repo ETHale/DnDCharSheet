@@ -29,10 +29,12 @@ func createSheet():
 	#stats - TODO change that to work with groups and be normal
 	
 	#skills
+	var skillList = get_node("Skills List")
 	for skill in char5e.get("Skills"):
 		var skillNode = Skill.instantiate()
 		skillNode.createGUI(skill[0], skill[1], 0)
-		get_node("Skills List").add_child(skillNode)
+		skillList.add_child(skillNode)
+	skillList.add_theme_constant_override("separation", floor(skillList.get_size().y / len(char5e.get("Skills"))))
 
 #using defined globals we will update the whole sheet
 func updateSheet():
