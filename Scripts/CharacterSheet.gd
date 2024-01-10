@@ -2,33 +2,45 @@ extends Control
 
 #some preloads to make this all faster
 var NumberStat = preload("res://Scene/NumberStat.tscn")
+var Skill = preload("res://Scene/skill.tscn")
+
+#We will use the actual node tree as our object, with groups to classify wha everything is
+#however the original creation of objects will be passed on a preset.
+#this will allow for further creation of different types of sheets later
 
 @export
-var characterName = "Unnamed"
-
-#below refer to specific stats - these will be NumberStats scenes
-var str
+var char5e = {  # TODO finish this
+	"Name" = "Unnamed",
+	"Stats" = ["Str", "Dex", "Con", "Int", "Wis", "Cha"],
+	"Skills" = [
+		["Athletics",Globals.STR_SKILL], ["Acrobatics",Globals.DEX_SKILL], ["Sleight of Hand",Globals.DEX_SKILL], 
+		["Stealth", Globals.DEX_SKILL], ["Arcana", Globals.INT_SKILL], ["History", Globals.INT_SKILL], 
+		["Investigation", Globals.INT_SKILL], ["Nature", Globals.INT_SKILL], ["Religion", Globals.INT_SKILL], 
+		["Animal Handling",Globals.WIS_SKILL], ["Insight",Globals.WIS_SKILL], ["Medicine", Globals.WIS_SKILL], 
+		["Perception", Globals.WIS_SKILL], ["Survival", Globals.WIS_SKILL], ["Deception", Globals.CHA_SKILL], 
+		["Intimidation", Globals.CHA_SKILL], ["Performance", Globals.CHA_SKILL], ["Persuasion", Globals.CHA_SKILL]
+		],
+}
 
 #set everything up
 func createSheet():
-	for child in self.get_children():
-		match child.name:
-			"Str":
-				str = NumberStat.instantiate()
-				child.add_child(str)
+	#Change Name to be created here?
+	
+	#stats - TODO change that to work with groups and be normal
+	
+	#skills
+	for skill in char5e.get("Skills"):
+		var skillNode = Skill.instantiate()
+		skillNode.createGUI(skill[0], skill[1], 0)
+		get_node("Skills List").add_child(skillNode)
 
 #using defined globals we will update the whole sheet
 func updateSheet():
 	for child in self.get_children():
-		#print(child.name)
-		match child.name:
-			#character name
-			"CharacterNameLabel":
-				child.set_text(characterName)			
-			#strength stat
-			"Str":
-				str.updateNumber()
-				child.find_child("Label").set_text(str(str.getNumber()))
+		for group in child.get_groups():
+			match group:
+				"Name":
+					child.set_text(char5e.get("Name"))
 
 func _ready():
 	createSheet()
